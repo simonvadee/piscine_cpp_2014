@@ -1,0 +1,37 @@
+#include "sickkoala.h"
+#include "koalanurse.h"
+#include "koaladoctor.h"
+#include "koaladoctorlist.h"
+#include <stdlib.h>
+
+int		main()
+{
+  SickKoala	patient("Jordan");
+  KoalaNurse	nurse(1);
+  KoalaDoctor	doctor("1");
+  KoalaDoctor	doctor1("2");
+  KoalaDoctor	doctor2("3");
+  KoalaDoctor	doctor3("4");
+  KoalaDoctorList list(&doctor);
+  KoalaDoctorList list1(&doctor1);
+  KoalaDoctorList list2(&doctor2);
+  KoalaDoctorList list3(&doctor3);
+
+  list.append(&list1);
+  list.append(&list2);
+  list.append(&list3);
+  list.dump();
+  list.removeFromName("3");
+  list.dump();
+  list.remove(&list3);
+  list.dump();
+  srand(time(NULL));
+  // nurse.timeCheck();
+  // doctor.timeCheck();
+  // patient.overDrive("Kreog ! J'ai mal au Kreog ! Kreoggez moi !");
+  // doctor.diagnose(&patient);
+  // nurse.giveDrug(nurse.readReport("Jordan.report"), &patient);
+  // nurse.timeCheck();
+  // doctor.timeCheck(); 
+  return (0);
+}
